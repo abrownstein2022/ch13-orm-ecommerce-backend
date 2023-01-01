@@ -27,6 +27,23 @@ Product.init(
         isDecimal: true,
       },
     },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      // will only allow decimal values
+      validate: {
+        isNumeric: true,
+      },
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        // This references the `category` model's id, which was set in Category.js as its `modelName` property
+        model: 'category',
+        key: 'id',
+      },
+    },   
   },
   {
     sequelize,
