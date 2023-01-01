@@ -1,9 +1,6 @@
 # 13 Object-Relational Mapping (ORM): E-Commerce Back End 
 ![license](https://img.shields.io/badge/license-MIT-black)
 
-Deployed Link on Heroku:
-https://ch11-express-notes-taker.herokuapp.com
-
 ## Table of Contents
 
 - [Description](#description)
@@ -18,7 +15,6 @@ https://ch11-express-notes-taker.herokuapp.com
 
 ## Description
 Build the backend for an e-commerce site by configuring an express.js API to use Sequelize to interact with a MySQL db.
-
 
 
 **User Story**
@@ -45,7 +41,7 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
 
 ```
-## Mock-Up
+<!-- ## Mock-Up
 
 The following animation shows the application's GET routes to return all categories, all products, and all tags being tested in Insomnia:
 
@@ -59,49 +55,70 @@ The following animation shows the application's POST, PUT, and DELETE routes for
 
 ![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./assets/13-orm-homework-demo-03.gif)
 
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
+Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia. -->
 
 ## Installation
 <!-- audience is other developers -->
 
-1. Clone this GitHub repo https://github.com/abrownstein2022/ch11-express-note-taker:
+
+**Note: In package.json, peer dependencies already exist for dotenv, mysql2, sequelize, nodemon and dates-fns so you do not have to install these packages. You should have mysql already installed on your computer.**
+
+1. Clone this GitHub repo https://github.com/abrownstein2022/proj2-restaurant-mgmt-sys:
 <!-- Check out the gh cli tool from github -->
 ```bash
-$ gh repo clone /abrownstein2022/ch11-express-note-taker
+$ gh repo clone /abrownstein2022/proj2-restaurant-mgmt-sys
 ```
-2. From the terminal, install npm and uuid:
+2. From the terminal, install npm:
 
 ```bash
 $ npm install
-$ npm uuid
+```
+
+3. Log into mysql, create the database on your local machine and seed the database:
+
+```bash
+$mysql -u root -p < db/schema.sql
+$npm run seed-database
 ```
 
 <!-- [] implies user input 
  mysql> restaurant_mgr < C:\[filename].sql
 -->
 
-3. Start the local server and watch for file changes to automatically restart server:
+4. Start the local server and watch for file changes to automatically restart server:
 ```bash
 $ npm run watch 
 ```
 
-4. Open Express or a browser to test any changes you make to the application after cloning.
-
+5. Open Express or a browser to test any changes you make to the application after cloning.
 ## Usage
 
-1. Open the app using Express or Heroku https://ch11-express-notes-taker.herokuapp.com
-2. From the landing page, click on the notes page to see a page with existing notes on the left-hand column, plus empty fields
-to enter a new note title and text.
-3. Press the Save icon to save this info and see it in the left-hand column.
-4. When you click on the Write icon in the top navigation, I see empty fields to enter a new note title and text. 
-5. Press the Delete icon to delete a note.
+1. Start the application:
+```bash
+$ node index.js
+```
+2. The first prompts will be for the team manager information, including manager name, employee id, email and 
+office number.  You may only enter one team manager.
+3. After you have entered the manager info, a main menu appears so you can select to add Engineers and/or Interns.  
+You may enter as many Engineers and Interns as needed.
+4. When you have entered all the team members' information, click on the menu option "Done - Exit and Generate HTML file".  
+At this point, the application will generate the team.html file in the /dist folder, and exit the application.
+5. Go to the /dist folder.
+6. Right-click on the team.html file that was created by the application and select "Open in Default Browser". 
+7. To test the application using Jest and the JavaScript files in the _tests_ folder:
+```bash
+$ npm run test 
+```
 
-**Please review to the screenshots below to view the application:**
+**Please review to the screenshots and demonostration video below to view how the application works:**
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
 
-
-
-video
-
+Walk-through Video
+![example image get started page](./assets/images/ch11-express-screen1-get-started-pg.jpg)
 ## Credits
 
 ```md
@@ -143,13 +160,22 @@ _underline_
 1. all ones - auttomatic numbering
 Feattures for *future* development
  -->
-**The main features in this project are:**<br>
-1. Uses Express.js and uuid
-1. Deployed on Heroku
-1. GET, POST and DELETE routes for retrieving, adding and deleteing note data
+**The main features found in this project are:**<br>
+1. Node.js and Express.js to create a RESTful API
+1. Handlebars.js as the template engine
+1. MySQL and the Sequelize ORM for the database
+1. Both GET and POST routes for retrieving and adding new data (create customer registration and order data in database, view order data)
 1. Dates-fns to format the order date in vieworder.handlebars (https://date-fns.org/)
-1. Necessary folder structure 
+1. Nodemon for testing to automatically restart the local server when it detects changes made to files
+1. Folder structure that meets the MVC paradigm
+1. Authentication (express-session and cookies in login and registration pages)
+1. Protect API keys and sensitive information with environment variables
+1. Deployed using Heroku (with data)
+1. Polished UI
+1. Interactive and responsive design
+1. Meets good-quality coding standards 
 1. Professional README
+
 
 ## How-to-Contribute
 
@@ -167,7 +193,7 @@ I can be reached at alexis@drdatabase.com.
 
 This GitHub repo can be found at:
   
-https://github.com/abrownstein2022/ch11-express-note-taker
+https://github.com/abrownstein2022/ch13-orm-ecommerce-backend
  
 -------------------------------
 ## Getting Started
